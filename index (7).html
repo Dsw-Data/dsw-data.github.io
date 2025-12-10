@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ============================================
+         META TAGS ESSENCIAIS
+         Define charset, viewport responsivo e descrição para SEO
+    ============================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DSW Data Web Solutions - Desenvolvimento de Sites, Landing Pages, E-commerce e Apps Mobile. Soluções digitais personalizadas em São Paulo.">
+    <meta name="keywords" content="desenvolvimento web, landing page, e-commerce, apps mobile, São Paulo, DSW Data">
+    <meta name="author" content="DSW Data Web Solutions">
+    
+    <!-- ============================================
+         OPEN GRAPH - Compartilhamento em Redes Sociais
+         Define como o site aparece quando compartilhado
+    ============================================= -->
+    <meta property="og:title" content="DSW Data Web Solutions">
+    <meta property="og:description" content="Transformamos suas ideias em soluções digitais de alto impacto">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dsw-data.github.io">
+    
+    <title>DSW Data | Web Solutions</title>
+    
+    <!-- ============================================
+         FAVICON - Ícone do site na aba do navegador
+         Usando SVG inline codificado em base64
+    ============================================= -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23247BA0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EDSW%3C/text%3E%3C/svg%3E">
+    
+    <!-- ============================================
+         FONTES GOOGLE
+         Orbitron: Fonte futurista para títulos (igual ao cartão)
+         Poppins: Fonte moderna e legível para textos
+    ============================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ============================================
+         CSS EXTERNO
+         Arquivo de estilos separado para melhor organização
+    ============================================= -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         CANVAS DE PARTÍCULAS
+         Elemento onde o background interativo será renderizado
+         Posicionado de forma fixa para cobrir toda a tela
+    ============================================= -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ============================================
+         HEADER / NAVEGAÇÃO
+         Barra de navegação fixa no topo com logo e menu
+         Usa backdrop-filter para efeito de vidro fosco
+    ============================================= -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo com ícone SVG inline -->
+            <a href="#home" class="nav__logo">
+                <!-- Ícone de código estilizado -->
+                <svg class="nav__logo-icon" viewBox="0 0 50 35" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 17.5 L 8 9 L 8 5 L 0 12.5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 42 5 L 50 12.5 L 50 17.5 L 42 9" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="14" y="6" width="22" height="14" fill="none" stroke="currentColor" stroke-width="2" rx="2"/>
+                    <line x1="16" y1="11" x2="34" y2="11" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="18" cy="8.5" r="1" fill="currentColor"/>
+                    <circle cx="22" cy="8.5" r="1" fill="currentColor"/>
+                    <circle cx="26" cy="8.5" r="1" fill="currentColor"/>
+                </svg>
+                <span class="nav__logo-text">DSW<span class="nav__logo-accent">DATA</span></span>
+            </a>
+            
+            <!-- Menu de navegação -->
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                <li class="nav__item"><a href="#servicos" class="nav__link">Serviços</a></li>
+                <li class="nav__item"><a href="#portfolio" class="nav__link">Portfólio</a></li>
+                <li class="nav__item"><a href="#contato" class="nav__link">Contato</a></li>
+            </ul>
+            
+            <!-- Botão hamburguer para mobile -->
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         MAIN - Conteúdo Principal
+         Elemento semântico que agrupa todo o conteúdo
+    ============================================= -->
+    <main>
+        <!-- ============================================
+             HERO SECTION
+             Seção inicial de impacto com título principal,
+             subtítulo e call-to-action
+        ============================================= -->
+        <section class="hero" id="home">
+            <div class="hero__container container">
+                <!-- Badge de destaque -->
+                <span class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    Disponível para novos projetos
+                </span>
+                
+                <!-- Título principal com destaque em gradiente -->
+                <h1 class="hero__title">
+                    Transformamos suas ideias em
+                    <span class="hero__title-gradient">soluções digitais</span>
+                    de alto impacto
+                </h1>
+                
+                <!-- Descrição -->
+                <p class="hero__description">
+                    Desenvolvimento profissional de sites, landing pages, e-commerces e aplicativos mobile. 
+                    Criamos experiências digitais que conectam sua marca ao seu público.
+                </p>
+                
+                <!-- Botões de ação -->
+                <div class="hero__buttons">
+                    <a href="#contato" class="btn btn--primary">
+                        <span>Iniciar Projeto</span>
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#portfolio" class="btn btn--secondary">
+                        Ver Portfólio
+                    </a>
+                </div>
+                
+                <!-- Indicadores de tecnologias -->
+                <div class="hero__tech">
+                    <span class="hero__tech-label">Tecnologias:</span>
+                    <div class="hero__tech-stack">
+                        <span class="hero__tech-item">HTML5</span>
+                        <span class="hero__tech-item">CSS3</span>
+                        <span class="hero__tech-item">JavaScript</span>
+                        <span class="hero__tech-item">React</span>
+                        <span class="hero__tech-item">PHP</span>
+                        <span class="hero__tech-item">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator animado -->
+            <div class="hero__scroll">
+                <div class="hero__scroll-mouse">
+                    <div class="hero__scroll-wheel"></div>
+                </div>
+                <span class="hero__scroll-text">Scroll</span>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SEÇÃO DE SERVIÇOS
+             Cards apresentando os principais serviços oferecidos
+             com ícones, títulos e descrições
+        ============================================= -->
+        <section class="services" id="servicos">
+            <div class="container">
+                <!-- Cabeçalho da seção -->
+                <div class="section__header">
+                    <span class="section__badge">Serviços</span>
+                    <h2 class="section__title">O que eu <span class="text-gradient">desenvolvo</span></h2>
+                    <p class="section__description">
+                        Soluções completas para sua presença digital, do conceito à entrega final
+                    </p>
+                </div>
+                
+                <!-- Grid de cards de serviços -->
+                <div class="services__grid">
+                    <!-- Card 1: Sites Institucionais -->
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <!-- Ícone de monitor/website -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="6" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                                <line x1="4" y1="14" x2="44" y2="14" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+                                <circle cx="14" cy="10" r="1.5" fill="currentColor"/>
+                                <circle cx="19" cy="10" r="1.5" fill="currentColor"/>
+                                <line x1="18" y1="42" x2="30" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="24" y1="34" x2="24" y2="42" stroke="currentColor" stroke-width="2.5"/>
+                                <rect x="10" y="20" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="26" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="26" y1="24" x2="34" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="26" y1="28" x2="36" y2="28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Sites Institucionais</h3>
+                        <p class="service-card__description">
+                            Sites profissionais e responsivos que transmitem credibilidade e fortalecem a identidade da sua marca na web.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Design personalizado</li>
+                            <li>SEO otimizado</li>
+                            <li>Responsivo</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card 2: Landing Pages -->
+                    <article class="service-card service-card--featured">
+                        <span class="service-card__badge">Mais Popular</span>
+                        <div class="service-card__icon">
+                            <!-- Ícone de landing page / conversão -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="4" width="32" height="40" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                                <circle cx="24" cy="16" r="6" stroke="currentColor" stroke-width="2"/>
+                                <path d="M22 16l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="14" y="26" width="20" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="16" y="34" width="16" height="6" rx="2" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Landing Pages</h3>
+                        <p class="service-card__description">
+                            Páginas de alta conversão focadas em resultados. Ideais para campanhas, lançamentos e captação de leads.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Alta conversão</li>
+                            <li>Carregamento rápido</li>
+                            <li>A/B Testing</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card 3: E-commerce -->
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <!-- Ícone de carrinho/e-commerce -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 8h6l6 24h20l4-16H16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="18" cy="38" r="3" stroke="currentColor" stroke-width="2.5"/>
+                                <circle cx="34" cy="38" r="3" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M22 20h8M26 16v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">E-commerce</h3>
+                        <p class="service-card__description">
+                            Lojas virtuais completas com gestão de produtos, pagamentos integrados e experiência de compra otimizada.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Gestão de produtos</li>
+                            <li>Pagamento integrado</li>
+                            <li>Painel admin</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card 4: Apps Mobile -->
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <!-- Ícone de smartphone/app -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="4" width="24" height="40" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                                <line x1="12" y1="10" x2="36" y2="10" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="36" x2="36" y2="36" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="40" r="2" fill="currentColor"/>
+                                <rect x="18" y="16" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="18" y1="28" x2="30" y2="28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="18" y1="32" x2="26" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Apps Mobile</h3>
+                        <p class="service-card__description">
+                            Aplicativos mobile híbridos e PWAs com interfaces intuitivas e performance nativa.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>iOS & Android</li>
+                            <li>PWA</li>
+                            <li>UI/UX moderno</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SEÇÃO DE PORTFÓLIO
+             Galeria de projetos realizados com efeitos hover
+             e links para visualização
+        ============================================= -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <!-- Cabeçalho da seção -->
+                <div class="section__header">
+                    <span class="section__badge">Portfólio</span>
+                    <h2 class="section__title">Projetos <span class="text-gradient">recentes</span></h2>
+                    <p class="section__description">
+                        Uma seleção dos trabalhos que desenvolvi para clientes de diversos segmentos
+                    </p>
+                </div>
+                
+                <!-- Filtros do portfólio -->
+                <div class="portfolio__filters">
+                    <button class="portfolio__filter active" data-filter="all">Todos</button>
+                    <button class="portfolio__filter" data-filter="site">Sites</button>
+                    <button class="portfolio__filter" data-filter="landing">Landing Pages</button>
+                    <button class="portfolio__filter" data-filter="ecommerce">E-commerce</button>
+                    <button class="portfolio__filter" data-filter="app">Apps</button>
+                </div>
+                
+                <!-- Grid de projetos -->
+                <div class="portfolio__grid">
+                    <!-- Projeto 1: Site Institucional -->
+                    <article class="portfolio-card" data-category="site">
+                        <div class="portfolio-card__image">
+                            <!-- Placeholder para imagem do projeto -->
+                            <div class="portfolio-card__placeholder">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="10" y1="15" x2="110" y2="15" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="17" cy="10" r="2" fill="currentColor"/>
+                                    <circle cx="24" cy="10" r="2" fill="currentColor"/>
+                                    <circle cx="31" cy="10" r="2" fill="currentColor"/>
+                                    <rect x="20" y="25" width="35" height="20" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="25" x2="100" y2="25" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="32" x2="95" y2="32" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="39" x2="90" y2="39" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="20" y="50" width="80" height="8" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Site Institucional</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Site Institucional</span>
+                            <h3 class="portfolio-card__title">Empresa Modelo</h3>
+                            <p class="portfolio-card__description">Site corporativo com design moderno e seções dinâmicas</p>
+                            <div class="portfolio-card__tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 2: Landing Page -->
+                    <article class="portfolio-card" data-category="landing">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--landing">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="30" y="15" width="60" height="10" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <circle cx="60" cy="38" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M57 38l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <rect x="40" y="52" width="40" height="8" rx="3" fill="currentColor"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Landing Page</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Landing Page</span>
+                            <h3 class="portfolio-card__title">Campanha Marketing</h3>
+                            <p class="portfolio-card__description">Landing page de alta conversão para captação de leads</p>
+                            <div class="portfolio-card__tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JS</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 3: E-commerce -->
+                    <article class="portfolio-card" data-category="ecommerce">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--ecommerce">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="15" y="15" width="25" height="25" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="45" y="15" width="25" height="25" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="75" y="15" width="25" height="25" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="15" y1="45" x2="40" y2="45" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="45" y1="45" x2="70" y2="45" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="75" y1="45" x2="100" y2="45" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="15" y="50" width="20" height="6" rx="2" fill="currentColor"/>
+                                    <rect x="45" y="50" width="20" height="6" rx="2" fill="currentColor"/>
+                                    <rect x="75" y="50" width="20" height="6" rx="2" fill="currentColor"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">E-commerce</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">E-commerce</span>
+                            <h3 class="portfolio-card__title">Loja Virtual</h3>
+                            <p class="portfolio-card__description">Plataforma completa de vendas online com painel administrativo</p>
+                            <div class="portfolio-card__tech">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>JS</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 4: App Mobile -->
+                    <article class="portfolio-card" data-category="app">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--app">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="40" y="5" width="40" height="65" rx="5" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="40" y1="12" x2="80" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                                    <line x1="40" y1="58" x2="80" y2="58" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="60" cy="64" r="3" fill="currentColor"/>
+                                    <rect x="47" y="20" width="26" height="15" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="47" y1="40" x2="73" y2="40" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="47" y1="46" x2="68" y2="46" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="47" y1="52" x2="63" y2="52" stroke="currentColor" stroke-width="1"/>
+                                    <text x="60" y="78" font-size="8" fill="currentColor" text-anchor="middle">App Mobile</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">App Mobile</span>
+                            <h3 class="portfolio-card__title">Aplicativo de Gestão</h3>
+                            <p class="portfolio-card__description">App híbrido para gestão de tarefas e produtividade</p>
+                            <div class="portfolio-card__tech">
+                                <span>React Native</span>
+                                <span>Node.js</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 5: Site + Dashboard -->
+                    <article class="portfolio-card" data-category="site">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--dashboard">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="15" y="12" width="25" height="20" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="15" y="35" width="25" height="20" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="45" y="12" width="60" height="43" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <polyline points="50,45 60,35 70,40 80,25 90,30 100,20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Dashboard</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Dashboard</span>
+                            <h3 class="portfolio-card__title">Sistema de Gestão</h3>
+                            <p class="portfolio-card__description">Dashboard administrativo com gráficos e relatórios</p>
+                            <div class="portfolio-card__tech">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>Chart.js</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 6: Landing Page 2 -->
+                    <article class="portfolio-card" data-category="landing">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--landing2">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <text x="60" y="22" font-size="10" fill="currentColor" text-anchor="middle" font-weight="bold">TÍTULO</text>
+                                    <line x1="35" y1="28" x2="85" y2="28" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="25" y="35" width="30" height="18" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="65" y="35" width="30" height="18" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="40" y="56" width="40" height="6" rx="2" fill="currentColor"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Landing Page</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Landing Page</span>
+                            <h3 class="portfolio-card__title">Página de Produto</h3>
+                            <p class="portfolio-card__description">Landing page para lançamento de produto digital</p>
+                            <div class="portfolio-card__tech">
+                                <span>HTML5</span>
+                                <span>SASS</span>
+                                <span>JS</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SEÇÃO DE CONTATO
+             Formulário de contato e informações de contato
+             com links diretos para WhatsApp e email
+        ============================================= -->
+        <section class="contact" id="contato">
+            <div class="container">
+                <!-- Cabeçalho da seção -->
+                <div class="section__header">
+                    <span class="section__badge">Contato</span>
+                    <h2 class="section__title">Vamos <span class="text-gradient">conversar</span>?</h2>
+                    <p class="section__description">
+                        Entre em contato para discutirmos seu projeto. Respondo em até 24 horas!
+                    </p>
+                </div>
+                
+                <div class="contact__wrapper">
+                    <!-- Cards de contato direto -->
+                    <div class="contact__info">
+                        <!-- Card WhatsApp -->
+                        <a href="https://wa.me/5511915572828?text=Olá! Vim pelo site e gostaria de mais informações sobre os serviços." 
+                           class="contact-card contact-card--whatsapp" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            <div class="contact-card__icon">
+                                <!-- Ícone WhatsApp -->
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3 class="contact-card__title">WhatsApp</h3>
+                                <p class="contact-card__text">(11) 91557-2828</p>
+                                <span class="contact-card__action">Clique para conversar →</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Card Email -->
+                        <a href="mailto:dsw.sp.2023@gmail.com" class="contact-card contact-card--email">
+                            <div class="contact-card__icon">
+                                <!-- Ícone Email -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="M22 6l-10 7L2 6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3 class="contact-card__title">Email</h3>
+                                <p class="contact-card__text">dsw.sp.2023@gmail.com</p>
+                                <span class="contact-card__action">Enviar email →</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Card Localização -->
+                        <div class="contact-card contact-card--location">
+                            <div class="contact-card__icon">
+                                <!-- Ícone Localização -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3 class="contact-card__title">Localização</h3>
+                                <p class="contact-card__text">São Paulo, SP - Brasil</p>
+                                <span class="contact-card__action">Atendimento remoto</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulário de contato -->
+                    <form class="contact__form" id="contact-form">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Nome completo</label>
+                            <input type="text" id="name" name="name" class="form__input" placeholder="Seu nome" required>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="email" class="form__label">Email</label>
+                            <input type="email" id="email" name="email" class="form__input" placeholder="seu@email.com" required>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="service" class="form__label">Tipo de projeto</label>
+                            <select id="service" name="service" class="form__input form__select" required>
+                                <option value="" disabled selected>Selecione o serviço</option>
+                                <option value="site">Site Institucional</option>
+                                <option value="landing">Landing Page</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="app">App Mobile</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="message" class="form__label">Mensagem</label>
+                            <textarea id="message" name="message" class="form__input form__textarea" placeholder="Conte-me sobre seu projeto..." rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <span>Enviar Mensagem</span>
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         Rodapé com informações adicionais, links úteis
+         e direitos autorais
+    ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Logo e descrição -->
+                <div class="footer__brand">
+                    <a href="#home" class="footer__logo">
+                        <span class="footer__logo-text">DSW<span class="footer__logo-accent">DATA</span></span>
+                    </a>
+                    <p class="footer__description">
+                        Transformando ideias em soluções digitais de alto impacto.
+                    </p>
+                </div>
+                
+                <!-- Links rápidos -->
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <nav class="footer__nav">
+                        <a href="#home">Home</a>
+                        <a href="#servicos">Serviços</a>
+                        <a href="#portfolio">Portfólio</a>
+                        <a href="#contato">Contato</a>
+                    </nav>
+                </div>
+                
+                <!-- Serviços -->
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <nav class="footer__nav">
+                        <a href="#servicos">Sites Institucionais</a>
+                        <a href="#servicos">Landing Pages</a>
+                        <a href="#servicos">E-commerce</a>
+                        <a href="#servicos">Apps Mobile</a>
+                    </nav>
+                </div>
+                
+                <!-- Contato -->
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contato</h4>
+                    <p>dsw.sp.2023@gmail.com</p>
+                    <p>(11) 91557-2828</p>
+                    <p>São Paulo, SP</p>
+                </div>
+            </div>
+            
+            <!-- Linha divisória -->
+            <div class="footer__divider"></div>
+            
+            <!-- Copyright -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © <span id="current-year">2024</span> DSW Data Web Solutions. Todos os direitos reservados.
+                </p>
+                <p class="footer__made-with">
+                    Desenvolvido com <span class="footer__heart">❤</span> por DSW Data
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         BOTÃO WHATSAPP FLUTUANTE
+         Botão fixo no canto inferior direito para
+         contato rápido via WhatsApp
+    ============================================= -->
+    <a href="https://wa.me/5511915572828?text=Olá! Vim pelo site e gostaria de mais informações." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contato via WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="whatsapp-float__tooltip">Fale conosco!</span>
+    </a>
+
+    <!-- ============================================
+         BOTÃO VOLTAR AO TOPO
+         Aparece após scroll e leva o usuário ao início
+    ============================================= -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- ============================================
+         SCRIPTS
+         JavaScript externo para interatividade
+    ============================================= -->
+    <script src="script.js"></script>
+</body>
+</html>
