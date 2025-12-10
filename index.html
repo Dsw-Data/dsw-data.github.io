@@ -603,7 +603,20 @@
                     </div>
                     
                     <!-- Formulário de contato -->
-                    <form class="contact__form" id="contact-form">
+                    <form class="contact__form" 
+                          id="contact-form" 
+                          action="https://formspree.io/f/xgvgnrwv" 
+                          method="POST">
+                        
+                        <!-- Campo hidden para redirecionar após envio -->
+                        <input type="hidden" name="_next" value="https://dsw-data.github.io/#contato">
+                        
+                        <!-- Campo hidden para assunto do email -->
+                        <input type="hidden" name="_subject" value="Novo contato do site DSW Data!">
+                        
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" name="_gotcha" style="display:none">
+                        
                         <div class="form__group">
                             <label for="name" class="form__label">Nome completo</label>
                             <input type="text" id="name" name="name" class="form__input" placeholder="Seu nome" required>
@@ -618,11 +631,11 @@
                             <label for="service" class="form__label">Tipo de projeto</label>
                             <select id="service" name="service" class="form__input form__select" required>
                                 <option value="" disabled selected>Selecione o serviço</option>
-                                <option value="site">Site Institucional</option>
-                                <option value="landing">Landing Page</option>
-                                <option value="ecommerce">E-commerce</option>
-                                <option value="app">App Mobile</option>
-                                <option value="outro">Outro</option>
+                                <option value="Site Institucional">Site Institucional</option>
+                                <option value="Landing Page">Landing Page</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="App Mobile">App Mobile</option>
+                                <option value="Outro">Outro</option>
                             </select>
                         </div>
                         
