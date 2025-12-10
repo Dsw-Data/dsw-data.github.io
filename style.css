@@ -823,6 +823,24 @@ section {
     background: linear-gradient(135deg, #667eea 0%, #768A96 100%);
 }
 
+/* Placeholders Power BI */
+.portfolio-card__placeholder--powerbi {
+    background: linear-gradient(135deg, #F2C811 0%, #E8A202 50%, #DE8E04 100%);
+}
+
+.portfolio-card__placeholder--powerbi2 {
+    background: linear-gradient(135deg, #E8A202 0%, #667eea 100%);
+}
+
+/* Placeholders Excel */
+.portfolio-card__placeholder--excel {
+    background: linear-gradient(135deg, #217346 0%, #185C37 100%);
+}
+
+.portfolio-card__placeholder--excel2 {
+    background: linear-gradient(135deg, #185C37 0%, #247BA0 100%);
+}
+
 .portfolio-card__overlay {
     position: absolute;
     inset: 0;
