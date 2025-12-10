@@ -1023,3 +1023,289 @@ window.addEventListener('error', (e) => {
 window.addEventListener('load', () => {
     console.log('📄 Página totalmente carregada');
 });
+
+/* ============================================
+   INTEGRAÇÃO COM EMAILJS
+   Envia emails diretamente do navegador
+   
+   Documentação: https://www.emailjs.com/docs/
+============================================ */
+
+/**
+ * Configuração do EmailJS
+ * Substitua pelos seus IDs do painel EmailJS
+ */
+const EMAILJS_CONFIG = {
+    publicKey: 'vBH7wkuSP3OO2riWW',      // Encontre em: Account → API Keys
+    serviceId: 'service_56133hz',       // Encontre em: Email Services
+    templateId: 'template_qa3zl06'      // Encontre em: Email Templates
+};
+
+/**
+ * Inicializa o EmailJS quando a página carrega
+ */
+function initEmailJS() {
+    // Carrega o SDK do EmailJS dinamicamente
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    script.onload = () => {
+        // Inicializa com sua Public Key
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+        console.log('📧 EmailJS inicializado');
+    };
+    document.head.appendChild(script);
+}
+
+/**
+ * Classe ContactForm atualizada para usar EmailJS
+ */
+class ContactFormEmailJS {
+    constructor() {
+        this.form = document.querySelector('#contact-form');
+        this.submitBtn = this.form?.querySelector('button[type="submit"]');
+        this.originalBtnText = this.submitBtn?.innerHTML;
+        
+        if (this.form) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        
+        // Validação em tempo real
+        const inputs = this.form.querySelectorAll('.form__input');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('input', () => this.clearError(input));
+        });
+    }
+    
+    /**
+     * Manipula o envio do formulário
+     */
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        // Valida o formulário
+        if (!this.validateForm()) return;
+        
+        // Mostra loading no botão
+        this.setLoading(true);
+        
+        try {
+            // Coleta os dados do formulário
+            const formData = {
+                name: this.form.querySelector('#name').value,
+                email: this.form.querySelector('#email').value,
+                service: this.form.querySelector('#service').value,
+                message: this.form.querySelector('#message').value
+            };
+            
+            // Envia via EmailJS
+            const response = await emailjs.send(
+                EMAILJS_CONFIG.serviceId,
+                EMAILJS_CONFIG.templateId,
+                formData
+            );
+            
+            console.log('✅ Email enviado:', response);
+            
+            // Mostra sucesso
+            this.showSuccess();
+            
+            // Limpa o formulário
+            this.form.reset();
+            
+        } catch (error) {
+            console.error('❌ Erro ao enviar:', error);
+            this.showError('Erro ao enviar mensagem. Tente novamente ou use o WhatsApp.');
+        } finally {
+            this.setLoading(false);
+        }
+    }
+    
+    /**
+     * Altera estado do botão para loading
+     */
+    setLoading(isLoading) {
+        if (!this.submitBtn) return;
+        
+        if (isLoading) {
+            this.submitBtn.disabled = true;
+            this.submitBtn.innerHTML = `
+                <span>Enviando...</span>
+                <svg class="btn__icon spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                </svg>
+            `;
+        } else {
+            this.submitBtn.disabled = false;
+            this.submitBtn.innerHTML = this.originalBtnText;
+        }
+    }
+    
+    /**
+     * Valida todos os campos
+     */
+    validateForm() {
+        const inputs = this.form.querySelectorAll('.form__input[required]');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!this.validateField(input)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    /**
+     * Valida um campo específico
+     */
+    validateField(input) {
+        const value = input.value.trim();
+        let isValid = true;
+        let errorMessage = '';
+        
+        if (!value) {
+            isValid = false;
+            errorMessage = 'Este campo é obrigatório';
+        } else if (input.type === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                isValid = false;
+                errorMessage = 'Digite um email válido';
+            }
+        }
+        
+        if (!isValid) {
+            this.showFieldError(input, errorMessage);
+        } else {
+            this.clearError(input);
+        }
+        
+        return isValid;
+    }
+    
+    /**
+     * Mostra erro em um campo
+     */
+    showFieldError(input, message) {
+        this.clearError(input);
+        input.classList.add('form__input--error');
+        
+        const errorEl = document.createElement('span');
+        errorEl.className = 'form__error';
+        errorEl.textContent = message;
+        errorEl.style.cssText = 'color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem; display: block;';
+        
+        input.parentNode.appendChild(errorEl);
+    }
+    
+    /**
+     * Remove erro de um campo
+     */
+    clearError(input) {
+        input.classList.remove('form__input--error');
+        const errorEl = input.parentNode.querySelector('.form__error');
+        if (errorEl) errorEl.remove();
+    }
+    
+    /**
+     * Mostra mensagem de sucesso
+     */
+    showSuccess() {
+        const successEl = document.createElement('div');
+        successEl.className = 'form__success';
+        successEl.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Mensagem enviada com sucesso! Entrarei em contato em breve.</span>
+        `;
+        successEl.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 0.5rem;
+            color: #16a34a;
+            margin-top: 1rem;
+            animation: fadeInUp 0.3s ease;
+        `;
+        
+        this.form.appendChild(successEl);
+        
+        setTimeout(() => {
+            successEl.style.opacity = '0';
+            setTimeout(() => successEl.remove(), 300);
+        }, 5000);
+    }
+    
+    /**
+     * Mostra mensagem de erro
+     */
+    showError(message) {
+        const errorEl = document.createElement('div');
+        errorEl.className = 'form__error-global';
+        errorEl.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>${message}</span>
+        `;
+        errorEl.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.5rem;
+            color: #dc2626;
+            margin-top: 1rem;
+        `;
+        
+        this.form.appendChild(errorEl);
+        
+        setTimeout(() => {
+            errorEl.style.opacity = '0';
+            setTimeout(() => errorEl.remove(), 300);
+        }, 5000);
+    }
+}
+
+// Adiciona CSS para animação de loading
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .spin {
+        animation: spin 1s linear infinite;
+    }
+    .form__input--error {
+        border-color: #ef4444 !important;
+    }
+`;
+document.head.appendChild(style);
+
+// Inicializa EmailJS e o formulário
+document.addEventListener('DOMContentLoaded', () => {
+    initEmailJS();
+    
+    // Aguarda SDK carregar e inicializa o formulário
+    setTimeout(() => {
+        new ContactFormEmailJS();
+    }, 1000);
+});
+
+
+
