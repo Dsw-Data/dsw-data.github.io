@@ -144,6 +144,8 @@
                         <span class="hero__tech-item">React</span>
                         <span class="hero__tech-item">PHP</span>
                         <span class="hero__tech-item">MySQL</span>
+                        <span class="hero__tech-item">Power BI</span>
+                        <span class="hero__tech-item">Excel/VBA</span>
                     </div>
                 </div>
             </div>
@@ -274,6 +276,72 @@
                             <li>UI/UX moderno</li>
                         </ul>
                     </article>
+
+                    <!-- Card 5: Dashboards Power BI -->
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <!-- Ícone de dashboard/gráficos -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="6" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                                <line x1="4" y1="14" x2="44" y2="14" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+                                <circle cx="14" cy="10" r="1.5" fill="currentColor"/>
+                                <circle cx="19" cy="10" r="1.5" fill="currentColor"/>
+                                <!-- Gráfico de barras -->
+                                <rect x="8" y="28" width="6" height="6" fill="currentColor" opacity="0.6"/>
+                                <rect x="16" y="22" width="6" height="12" fill="currentColor" opacity="0.8"/>
+                                <rect x="24" y="18" width="6" height="16" fill="currentColor"/>
+                                <!-- Gráfico de linha -->
+                                <polyline points="32,30 36,24 40,26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <circle cx="32" cy="30" r="2" fill="currentColor"/>
+                                <circle cx="36" cy="24" r="2" fill="currentColor"/>
+                                <circle cx="40" cy="26" r="2" fill="currentColor"/>
+                                <!-- Base/suporte -->
+                                <line x1="18" y1="44" x2="30" y2="44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="24" y1="38" x2="24" y2="44" stroke="currentColor" stroke-width="2.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Dashboards Power BI</h3>
+                        <p class="service-card__description">
+                            Painéis interativos e relatórios visuais para transformar dados em decisões estratégicas.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Visualizações dinâmicas</li>
+                            <li>KPIs em tempo real</li>
+                            <li>Conexão com múltiplas fontes</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card 6: Soluções Excel -->
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <!-- Ícone de planilha/Excel -->
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="4" width="36" height="40" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                                <!-- Grid da planilha -->
+                                <line x1="6" y1="14" x2="42" y2="14" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="6" y1="24" x2="42" y2="24" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="6" y1="34" x2="42" y2="34" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="18" y1="4" x2="18" y2="44" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="30" y1="4" x2="30" y2="44" stroke="currentColor" stroke-width="1.5"/>
+                                <!-- X do Excel -->
+                                <path d="M21 17 L27 23 M27 17 L21 23" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <!-- Células com dados -->
+                                <rect x="32" y="16" width="8" height="6" rx="1" fill="currentColor" opacity="0.3"/>
+                                <rect x="8" y="26" width="8" height="6" rx="1" fill="currentColor" opacity="0.3"/>
+                                <rect x="20" y="36" width="8" height="6" rx="1" fill="currentColor" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Soluções Excel</h3>
+                        <p class="service-card__description">
+                            Planilhas inteligentes, automações VBA e ferramentas personalizadas para otimizar processos.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Automação VBA/Macros</li>
+                            <li>Dashboards interativos</li>
+                            <li>Fórmulas avançadas</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
@@ -301,6 +369,8 @@
                     <button class="portfolio__filter" data-filter="landing">Landing Pages</button>
                     <button class="portfolio__filter" data-filter="ecommerce">E-commerce</button>
                     <button class="portfolio__filter" data-filter="app">Apps</button>
+                    <button class="portfolio__filter" data-filter="dashboard">Dashboards</button>
+                    <button class="portfolio__filter" data-filter="excel">Excel</button>
                 </div>
                 
                 <!-- Grid de projetos -->
@@ -528,6 +598,186 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- Projeto 7: Dashboard Power BI -->
+                    <article class="portfolio-card" data-category="dashboard">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--powerbi">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <!-- Sidebar -->
+                                    <rect x="10" y="5" width="20" height="60" fill="currentColor" opacity="0.2"/>
+                                    <!-- KPI Cards -->
+                                    <rect x="35" y="10" width="30" height="12" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="70" y="10" width="35" height="12" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <!-- Gráfico de barras -->
+                                    <rect x="35" y="26" width="6" height="15" fill="currentColor" opacity="0.4"/>
+                                    <rect x="44" y="20" width="6" height="21" fill="currentColor" opacity="0.6"/>
+                                    <rect x="53" y="24" width="6" height="17" fill="currentColor" opacity="0.8"/>
+                                    <rect x="62" y="18" width="6" height="23" fill="currentColor"/>
+                                    <!-- Gráfico de pizza -->
+                                    <circle cx="90" cy="35" r="12" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M90 35 L90 23 A12 12 0 0 1 100 40 Z" fill="currentColor" opacity="0.6"/>
+                                    <!-- Linha de tendência -->
+                                    <polyline points="35,55 50,50 65,52 80,45 95,48" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Dashboard Power BI</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Dashboard</span>
+                            <h3 class="portfolio-card__title">Painel de Vendas</h3>
+                            <p class="portfolio-card__description">Dashboard interativo com KPIs, análise de vendas e metas</p>
+                            <div class="portfolio-card__tech">
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>SQL</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 8: Dashboard Power BI 2 -->
+                    <article class="portfolio-card" data-category="dashboard">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--powerbi2">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <!-- Header -->
+                                    <rect x="10" y="5" width="100" height="10" fill="currentColor" opacity="0.15"/>
+                                    <!-- Cards de métricas -->
+                                    <rect x="15" y="20" width="25" height="18" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="45" y="20" width="25" height="18" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="75" y="20" width="30" height="18" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <!-- Valores nos cards -->
+                                    <text x="27" y="32" font-size="6" fill="currentColor" text-anchor="middle">R$ 1.2M</text>
+                                    <text x="57" y="32" font-size="6" fill="currentColor" text-anchor="middle">+24%</text>
+                                    <!-- Gráfico de área -->
+                                    <path d="M15 58 L30 52 L45 54 L60 48 L75 50 L90 44 L105 46 L105 58 L15 58 Z" fill="currentColor" opacity="0.3"/>
+                                    <polyline points="15,58 30,52 45,54 60,48 75,50 90,44 105,46" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Dashboard Financeiro</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Dashboard</span>
+                            <h3 class="portfolio-card__title">Análise Financeira</h3>
+                            <p class="portfolio-card__description">Painel financeiro com fluxo de caixa, DRE e indicadores</p>
+                            <div class="portfolio-card__tech">
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Excel</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 9: Planilha Excel -->
+                    <article class="portfolio-card" data-category="excel">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--excel">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <!-- Grid do Excel -->
+                                    <line x1="10" y1="15" x2="110" y2="15" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="10" y1="25" x2="110" y2="25" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="10" y1="35" x2="110" y2="35" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="10" y1="45" x2="110" y2="45" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="10" y1="55" x2="110" y2="55" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="30" y1="5" x2="30" y2="65" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="55" y1="5" x2="55" y2="65" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="80" y1="5" x2="80" y2="65" stroke="currentColor" stroke-width="1"/>
+                                    <!-- Cabeçalhos -->
+                                    <rect x="10" y="5" width="100" height="10" fill="currentColor" opacity="0.2"/>
+                                    <!-- Célula selecionada -->
+                                    <rect x="55" y="35" width="25" height="10" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="1.5"/>
+                                    <!-- Fórmula -->
+                                    <text x="67" y="42" font-size="5" fill="currentColor" text-anchor="middle">=SUM()</text>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Planilha Excel</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Excel</span>
+                            <h3 class="portfolio-card__title">Controle Financeiro</h3>
+                            <p class="portfolio-card__description">Planilha completa com automação VBA para gestão financeira</p>
+                            <div class="portfolio-card__tech">
+                                <span>Excel</span>
+                                <span>VBA</span>
+                                <span>Fórmulas</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 10: Sistema Excel -->
+                    <article class="portfolio-card" data-category="excel">
+                        <div class="portfolio-card__image">
+                            <div class="portfolio-card__placeholder portfolio-card__placeholder--excel2">
+                                <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="100" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <!-- Abas do Excel -->
+                                    <rect x="10" y="55" width="20" height="10" fill="currentColor" opacity="0.3"/>
+                                    <rect x="32" y="55" width="20" height="10" fill="currentColor" opacity="0.15"/>
+                                    <rect x="54" y="55" width="20" height="10" fill="currentColor" opacity="0.15"/>
+                                    <!-- Formulário/Interface -->
+                                    <rect x="15" y="10" width="40" height="8" rx="1" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="15" y="22" width="40" height="8" rx="1" stroke="currentColor" stroke-width="1"/>
+                                    <rect x="15" y="34" width="25" height="8" rx="2" fill="currentColor"/>
+                                    <!-- Mini tabela -->
+                                    <rect x="65" y="10" width="40" height="35" rx="2" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="18" x2="105" y2="18" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="26" x2="105" y2="26" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="65" y1="34" x2="105" y2="34" stroke="currentColor" stroke-width="1"/>
+                                    <line x1="85" y1="10" x2="85" y2="45" stroke="currentColor" stroke-width="1"/>
+                                    <text x="60" y="72" font-size="8" fill="currentColor" text-anchor="middle">Sistema VBA</text>
+                                </svg>
+                            </div>
+                            <div class="portfolio-card__overlay">
+                                <a href="#" class="portfolio-card__link" aria-label="Ver projeto">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                        <polyline points="15,3 21,3 21,9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <span class="portfolio-card__category">Excel</span>
+                            <h3 class="portfolio-card__title">Sistema de Cadastro</h3>
+                            <p class="portfolio-card__description">Sistema completo com formulários, banco de dados e relatórios</p>
+                            <div class="portfolio-card__tech">
+                                <span>Excel</span>
+                                <span>VBA</span>
+                                <span>UserForms</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -603,20 +853,7 @@
                     </div>
                     
                     <!-- Formulário de contato -->
-                    <form class="contact__form" 
-                          id="contact-form" 
-                          action="https://formspree.io/f/xgvgnrwv" 
-                          method="POST">
-                        
-                        <!-- Campo hidden para redirecionar após envio -->
-                        <input type="hidden" name="_next" value="https://dsw-data.github.io/#contato">
-                        
-                        <!-- Campo hidden para assunto do email -->
-                        <input type="hidden" name="_subject" value="Novo contato do site DSW Data!">
-                        
-                        <!-- Honeypot anti-spam -->
-                        <input type="text" name="_gotcha" style="display:none">
-                        
+                    <form class="contact__form" id="contact-form">
                         <div class="form__group">
                             <label for="name" class="form__label">Nome completo</label>
                             <input type="text" id="name" name="name" class="form__input" placeholder="Seu nome" required>
@@ -635,6 +872,8 @@
                                 <option value="Landing Page">Landing Page</option>
                                 <option value="E-commerce">E-commerce</option>
                                 <option value="App Mobile">App Mobile</option>
+                                <option value="Dashboard Power BI">Dashboard Power BI</option>
+                                <option value="Solução Excel/VBA">Solução Excel/VBA</option>
                                 <option value="Outro">Outro</option>
                             </select>
                         </div>
@@ -693,6 +932,8 @@
                         <a href="#servicos">Landing Pages</a>
                         <a href="#servicos">E-commerce</a>
                         <a href="#servicos">Apps Mobile</a>
+                        <a href="#servicos">Dashboards Power BI</a>
+                        <a href="#servicos">Soluções Excel</a>
                     </nav>
                 </div>
                 
